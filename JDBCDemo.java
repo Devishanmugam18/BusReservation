@@ -6,14 +6,12 @@ public class JDBCDemo {
 		batchdemo();
 	}	
 	
-
 	public static void readRecords() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
 		String passWord = "Test";
 		String query = "select * from employee";
 
-		
 		Connection con = DriverManager.getConnection(url,userName,passWord);
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(query);
@@ -32,7 +30,6 @@ public class JDBCDemo {
 		String userName = "root";
 		String passWord = "Test";
 		String query = "insert into employee values (4,'priya',250000)";
-
 		
 		Connection con = DriverManager.getConnection(url,userName,passWord);
 		Statement st = con.createStatement();
@@ -41,7 +38,6 @@ public class JDBCDemo {
 		System.out.println("Number of rows affected: " + rows);		
 		con.close();
 	}
-	
 
 	public static void insertVar() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
@@ -51,11 +47,9 @@ public class JDBCDemo {
 		int id=5;
 		String name = "Varun";
 		int salary = 300000;
-		
-		
+			
 		String query = "insert into employee values (" + id + ",'" + name + "'," + salary + ");";
 
-		
 		Connection con = DriverManager.getConnection(url,userName,passWord);
 		Statement st = con.createStatement();
 		int rows = st.executeUpdate(query);
@@ -75,9 +69,7 @@ public class JDBCDemo {
 		
 		String query = "insert into employee values (?,?,?);";
 
-		
 		Connection con = DriverManager.getConnection(url,userName,passWord);
-		
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setInt(1, id);
 		pst.setString(2, name);
@@ -98,7 +90,6 @@ public class JDBCDemo {
 
 		String query = "delete from employee where emp_id = " + id;
 
-		
 		Connection con = DriverManager.getConnection(url,userName,passWord);
 		Statement st = con.createStatement();
 		int rows = st.executeUpdate(query);
@@ -112,10 +103,8 @@ public class JDBCDemo {
 		String userName = "root";
 		String passWord = "Test";
 		
-
 		String query = "update employee set salary = 150000 where emp_id=1";
 
-		
 		Connection con = DriverManager.getConnection(url,userName,passWord);
 		Statement st = con.createStatement();
 		int rows = st.executeUpdate(query);
@@ -170,9 +159,7 @@ public class JDBCDemo {
 		CallableStatement cst = con.prepareCall("{call GetNameById(?,?)}");
 		cst.setInt(1, id);
 		cst.registerOutParameter(2, Types.VARCHAR);
-		
 		cst.executeUpdate();
-		
 		System.out.println(cst.getString(2));
 		
 		con.close();
@@ -191,7 +178,6 @@ public class JDBCDemo {
 		Statement st = con.createStatement();
 		int rows1 = st.executeUpdate(query1);
 		System.out.println("Rows affected " + rows1);
-		
 		int rows2 = st.executeUpdate(query2);
 		System.out.println("Rows affected " + rows2);
 		
