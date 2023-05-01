@@ -6,7 +6,7 @@ public class JDBCDemo {
 		batchdemo();
 	}	
 	
-	//simple read from db and display results
+
 	public static void readRecords() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -26,8 +26,7 @@ public class JDBCDemo {
 				
 		con.close();
 	}
-	
-	//insert query
+
 	public static void insertRecord() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -43,7 +42,7 @@ public class JDBCDemo {
 		con.close();
 	}
 	
-	//insert with variables
+
 	public static void insertVar() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -53,7 +52,7 @@ public class JDBCDemo {
 		String name = "Varun";
 		int salary = 300000;
 		
-		// "insert into employee values(5,'varun',300000);"
+		
 		String query = "insert into employee values (" + id + ",'" + name + "'," + salary + ");";
 
 		
@@ -65,7 +64,6 @@ public class JDBCDemo {
 		con.close();
 	}
 	
-	//insert with prepared statement
 	public static void insertUsingPst() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -75,7 +73,6 @@ public class JDBCDemo {
 		String name = "Nila";
 		int salary = 300000;
 		
-		// "insert into employee values(5,'varun',300000);"
 		String query = "insert into employee values (?,?,?);";
 
 		
@@ -92,7 +89,6 @@ public class JDBCDemo {
 		
 	}
 	
-	//delete
 	public static void delete() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -111,7 +107,6 @@ public class JDBCDemo {
 		con.close();
 	}
 	
-	//update
 	public static void update() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -129,12 +124,6 @@ public class JDBCDemo {
 		con.close();
 	}
 	
-	//Types of statement
-	//normal statement
-	//prepared statement
-	//callable statement call GetEmp()
-	
-	//calling simple stored procedure
 	public static void sp() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -153,7 +142,6 @@ public class JDBCDemo {
 		con.close();
 	}
 	
-	//calling stored procedure with input parameter
 	public static void sp2() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -173,7 +161,6 @@ public class JDBCDemo {
 		con.close();
 	}
 	
-	//calling stored procedure with in and out parameter
 	public static void sp3() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -190,8 +177,7 @@ public class JDBCDemo {
 		
 		con.close();
 	}
-	
-	//commit vs autocommit
+
 	public static void commitdemo() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
 		String userName = "root";
@@ -215,8 +201,6 @@ public class JDBCDemo {
 		con.close();
 		
 	}
-	
-	//batch processing
 	
 	public static void batchdemo() throws Exception{
 		String url = "jdbc:mysql://localhost:3306/jdbcdemo";
